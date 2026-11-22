@@ -39,12 +39,6 @@ export function Experience() {
             <p className="mt-4 max-w-md leading-relaxed text-muted">{profile.community}</p>
           </div>
         </div>
-
-        <ul className="mt-12 flex flex-wrap gap-x-4 gap-y-2 border-t border-line pt-8 text-sm text-muted">
-          {profile.skills.map((skill) => (
-            <li key={skill}>{skill}</li>
-          ))}
-        </ul>
       </div>
     </section>
   );
