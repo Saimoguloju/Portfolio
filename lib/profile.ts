@@ -39,7 +39,12 @@ export type Role = {
 
 export const profile = {
   name: "Moguloju Sai",
-  role: "Full Stack AI Engineer",
+  roles: [
+    "Full Stack AI Engineer",
+    "Forward Deployed Engineer",
+    "Automation Specialist",
+    "Integration Engineer",
+  ],
   location: "India",
   email: "saimoguloju2@gmail.com",
   phone: "+91 9398053071",

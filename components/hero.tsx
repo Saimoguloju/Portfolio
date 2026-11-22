@@ -1,13 +1,16 @@
 import Image from "next/image";
 import { profile } from "@/lib/profile";
+import { RoleCycle } from "@/components/role-cycle";
 
 export function Hero() {
   return (
     <section id="top" className="hero-glow px-6 pb-24 pt-32 md:px-10 md:pb-36 md:pt-44">
       <div className="rise mx-auto grid max-w-6xl items-end gap-12 md:grid-cols-[minmax(0,1fr)_16rem]">
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">
-            {profile.role} · {profile.location}
+          <p className="flex flex-wrap items-baseline gap-x-2 text-xs uppercase tracking-[0.22em] text-accent">
+            <RoleCycle roles={profile.roles} />
+            <span aria-hidden="true">·</span>
+            <span>{profile.location}</span>
           </p>
           <h1 className="mt-6 max-w-5xl font-serif text-[3.25rem] leading-[0.95] tracking-tight md:text-8xl">
             {profile.headline}
