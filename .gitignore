@@ -32,6 +32,9 @@ __pycache__/
 # vercel
 .vercel
 
+# editor
+.vscode/
+
 # logs and local tooling
 npm-debug.log*
 yarn-debug.log*
