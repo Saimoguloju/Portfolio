@@ -13,6 +13,7 @@
 /out/
 /build
 next-env.d.ts
+AGENTS.md
 *.tsbuildinfo
 
 # python
