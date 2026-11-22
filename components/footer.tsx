@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { profile } from "@/lib/profile";
 
 export function Footer() {
@@ -22,11 +23,14 @@ export function Footer() {
           {profile.links.map((link) => (
             <li key={link.href}>
               <a
-                className="underline decoration-[#fffbf3] underline-offset-4"
+                className="inline-flex items-center gap-2 underline decoration-[#fffbf3] underline-offset-4"
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
               >
+                {link.icon ? (
+                  <Image src={link.icon} alt="" width={20} height={20} className="size-5 rounded-sm" />
+                ) : null}
                 {link.label}
               </a>
             </li>

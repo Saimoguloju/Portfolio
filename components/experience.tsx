@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { profile } from "@/lib/profile";
 
 export function Experience() {
@@ -10,9 +11,14 @@ export function Experience() {
             <li key={role.org} className="grid gap-3 border-t border-line py-10 md:grid-cols-12 md:gap-10">
               <p className="text-sm text-muted md:col-span-3">{role.dates}</p>
               <div className="md:col-span-9">
-                <h3 className="text-xl">
-                  {role.title}
-                  <span className="text-muted"> · {role.org}</span>
+                <h3 className="flex items-center gap-3 text-xl">
+                  {role.logo ? (
+                    <Image src={role.logo} alt="" width={36} height={36} className="size-9 rounded-md" />
+                  ) : null}
+                  <span>
+                    {role.title}
+                    <span className="text-muted"> · {role.org}</span>
+                  </span>
                 </h3>
                 <p className="mt-3 max-w-2xl leading-relaxed text-muted">{role.summary}</p>
               </div>

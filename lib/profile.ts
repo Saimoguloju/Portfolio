@@ -1,6 +1,15 @@
+import type { StaticImageData } from "next/image";
+import expedifyLogo from "@/Images/Expedify.png";
+import githubIcon from "@/Images/GitHub.png";
+import heliosLogo from "@/Images/Helios Core AI.png";
+import huggingfaceIcon from "@/Images/Hugging Face.png";
+import linkedinIcon from "@/Images/LinkedIn.png";
+import profilePhoto from "@/Images/profile_image.png";
+
 export type ProfileLink = {
   label: string;
   href: string;
+  icon?: StaticImageData;
 };
 
 export type WorkItem = {
@@ -25,6 +34,7 @@ export type Role = {
   org: string;
   dates: string;
   summary: string;
+  logo?: StaticImageData;
 };
 
 export const profile = {
@@ -34,16 +44,22 @@ export const profile = {
   email: "saimoguloju2@gmail.com",
   phone: "+91 9398053071",
   phoneHref: "tel:+919398053071",
+  photo: profilePhoto,
   headline: "Production AI, built for real operations.",
   summary:
     "I build AI agents, voice systems, and retrieval pipelines that run in live customer operations. About two years in, currently leading AI engineering at Elision Technologies.",
   links: [
-    { label: "GitHub", href: "https://github.com/Saimoguloju" },
+    { label: "GitHub", href: "https://github.com/Saimoguloju", icon: githubIcon },
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/moguloju-sai-2b060b228",
+      icon: linkedinIcon,
     },
-    { label: "Hugging Face", href: "https://huggingface.co/MogulojuSai" },
+    {
+      label: "Hugging Face",
+      href: "https://huggingface.co/MogulojuSai",
+      icon: huggingfaceIcon,
+    },
   ] satisfies ProfileLink[],
   work: [
     {
@@ -130,6 +146,7 @@ export const profile = {
       title: "AI & Automation Engineer",
       org: "Expedify",
       dates: "Jun 2025 — Oct 2025",
+      logo: expedifyLogo,
       summary:
         "Turned product and marketing needs into automation. Lead-generation pipelines in n8n, an internal node-based workflow system, and LLM and retrieval automations, including TDS tasks.",
     },
@@ -137,6 +154,7 @@ export const profile = {
       title: "AI Engineer",
       org: "Helios Core AI",
       dates: "Feb 2025 — May 2025",
+      logo: heliosLogo,
       summary:
         "FastAPI microservices for conversational AI and document summarization across PDF, DOCX, and TXT. Azure Cognitive Services for speech, Azure Blob Storage for files, and Docker deployments with SSL.",
     },
