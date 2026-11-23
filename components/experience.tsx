@@ -17,10 +17,31 @@ export function Experience() {
                   ) : null}
                   <span>
                     {role.title}
-                    <span className="text-muted"> · {role.org}</span>
+                    <span className="text-muted">
+                      {" · "}
+                      {role.orgUrl ? (
+                        <a
+                          href={role.orgUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline decoration-accent underline-offset-4 hover:text-foreground"
+                        >
+                          {role.org}
+                        </a>
+                      ) : (
+                        role.org
+                      )}
+                    </span>
                   </span>
                 </h3>
                 <p className="mt-3 max-w-2xl leading-relaxed text-muted">{role.summary}</p>
+                {role.highlights ? (
+                  <ul className="mt-4 max-w-2xl list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted marker:text-accent">
+                    {role.highlights.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
             </li>
           ))}
@@ -37,6 +58,7 @@ export function Experience() {
           <div>
             <h3 className="text-xs uppercase tracking-[0.22em] text-muted">Also</h3>
             <p className="mt-4 max-w-md leading-relaxed text-muted">{profile.community}</p>
+            <p className="mt-4 max-w-md leading-relaxed text-muted">{profile.interests}</p>
           </div>
         </div>
       </div>

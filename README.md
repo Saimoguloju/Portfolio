@@ -103,7 +103,7 @@ One exported `profile` object holds everything shown on the site:
 | `work` | Work section (each item can have `links`) |
 | `systems` | Systems band |
 | `principles` | Principles |
-| `experience`, `education`, `certifications`, `community` | Experience |
+| `experience` (with optional `highlights` bullets), `education`, `certifications`, `community`, `interests` | Experience |
 | `skills` | Skills marquee |
 | `photo` | Imported but currently unused |
 
