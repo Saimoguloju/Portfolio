@@ -26,10 +26,11 @@ export function Hero() {
           <span className="block"><span className="underline decoration-[0.05em] underline-offset-[0.06em]">{first}</span></span>
           <span className="mt-1 flex flex-wrap items-end gap-x-5 md:ml-[3%]">
             <span className="underline decoration-[0.05em] underline-offset-[0.06em]">{last}</span>
-            <span className="mb-[0.6em] font-sans text-xs font-semibold uppercase leading-snug tracking-wide md:text-sm">
-              <RoleCycle roles={profile.roles} />
-              <br />
-              Currently based in {profile.location}
+            <span className="mb-[0.6em] flex flex-col items-start gap-1 font-sans text-xs font-semibold uppercase leading-snug tracking-wide md:text-sm">
+              <span className="min-w-[26ch]">
+                <RoleCycle roles={profile.roles} />
+              </span>
+              <span>Currently based in {profile.location}</span>
             </span>
           </span>
         </h1>
