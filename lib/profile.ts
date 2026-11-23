@@ -193,5 +193,12 @@ export const profile = {
     "Deepgram",
     "ElevenLabs",
     "Whisper",
+    "MCP",
+    "OpenClaw",
+    "Fine-tuning",
+    "QLoRA",
+    "LoRA",
+    "CrewAI",
+    "Agents",
   ],
 };
