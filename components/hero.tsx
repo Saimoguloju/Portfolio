@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { HeroCircles } from "@/components/hero-circles";
 import { RoleCycle } from "@/components/role-cycle";
 import { profile } from "@/lib/profile";
@@ -13,13 +12,6 @@ export function Hero() {
       className="relative flex min-h-svh flex-col justify-between overflow-hidden bg-hero px-6 pb-8 pt-12 text-hero-fg md:px-10 md:pt-14"
     >
       <HeroCircles />
-
-      <Image
-        src={profile.photo}
-        alt={`Portrait of ${profile.name}`}
-        priority
-        className="pointer-events-none absolute right-6 top-[30%] z-10 size-32 rounded-full border-4 border-hero-fg object-cover md:right-16 md:size-52"
-      />
 
       <div className="rise pointer-events-none relative z-10">
         <h1 className="font-display text-[clamp(4.25rem,16vw,13rem)] leading-[0.88]">
