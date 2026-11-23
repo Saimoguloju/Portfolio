@@ -21,7 +21,7 @@ const serif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Moguloju Sai — AI Engineer",
+  title: "Moguloju Sai - AI Engineer",
   description:
     "Portfolio of Moguloju Sai, a full stack AI engineer building production agents, voice systems, and retrieval pipelines.",
 };

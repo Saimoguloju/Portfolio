@@ -143,14 +143,14 @@ export const profile = {
     {
       title: "Full Stack AI Engineer",
       org: "Elision Technologies",
-      dates: "Nov 2025 — Present",
+      dates: "Nov 2025 - Present",
       summary:
         "Leading the AI engineering team. Production agents, the voice intelligence platform, routing across OpenAI, Claude, Gemini, and Mistral, n8n workflows, and FastAPI services shipped with Docker.",
     },
     {
       title: "AI & Automation Engineer",
       org: "Expedify",
-      dates: "Jun 2025 — Oct 2025",
+      dates: "Jun 2025 - Oct 2025",
       logo: expedifyLogo,
       summary:
         "Turned product and marketing needs into automation. Lead-generation pipelines in n8n, an internal node-based workflow system, and LLM and retrieval automations, including TDS tasks.",
@@ -158,7 +158,7 @@ export const profile = {
     {
       title: "AI Engineer",
       org: "Helios Core AI",
-      dates: "Feb 2025 — May 2025",
+      dates: "Feb 2025 - May 2025",
       logo: heliosLogo,
       summary:
         "FastAPI microservices for conversational AI and document summarization across PDF, DOCX, and TXT. Azure Cognitive Services for speech, Azure Blob Storage for files, and Docker deployments with SSL.",
@@ -167,7 +167,7 @@ export const profile = {
   education: {
     degree: "Bachelor of Technology in Data Science",
     school: "TKR College of Engineering and Technology",
-    dates: "Sep 2020 — Jul 2024",
+    dates: "Sep 2020 - Jul 2024",
   },
   certifications:
     "AWS Fundamentals on Coursera, Data Science with Python from NPTEL, and Agentic AI with LangChain and LangGraph on Udemy.",
