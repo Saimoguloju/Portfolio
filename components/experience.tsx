@@ -5,7 +5,7 @@ export function Experience() {
   return (
     <section id="experience" className="px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-6xl border-t border-line pt-16">
-        <h2 className="font-serif text-4xl tracking-tight md:text-6xl">Experience</h2>
+        <h2 className="font-display text-5xl uppercase leading-[0.95] md:text-7xl">Experience</h2>
         <ol className="mt-12">
           {profile.experience.map((role) => (
             <li key={role.org} className="grid gap-3 border-t border-line py-10 md:grid-cols-12 md:gap-10">

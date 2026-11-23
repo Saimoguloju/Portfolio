@@ -1,12 +1,74 @@
 @import "tailwindcss";
 
+/* Default theme: "signal" (orange hero, cream page, black ink) */
 :root {
+  --background: #f4efe6;
+  --foreground: #141413;
+  --muted: #5b5249;
+  --line: rgba(20, 20, 19, 0.2);
+  --accent: #e63a08;
+  --on-accent: #fffbf3;
+  --nav-bg: rgba(244, 239, 230, 0.85);
+  --footer-bg: #141413;
+  --hero-bg: #f83d0a;
+  --hero-fg: #fffbf3;
+  --hero-ink: #141413;
+}
+
+html[data-theme="peach"] {
   --background: #f8d3c0;
   --foreground: #141413;
   --muted: #5d3a2e;
   --line: rgba(198, 97, 63, 0.45);
-  --glow: rgba(217, 119, 87, 0.85);
   --accent: #d97757;
+  --on-accent: #fffbf3;
+  --nav-bg: rgba(246, 196, 174, 0.85);
+  --footer-bg: #c6613f;
+  --hero-bg: #d97757;
+  --hero-fg: #fffbf3;
+  --hero-ink: #3b2018;
+}
+
+html[data-theme="ocean"] {
+  --background: #cfe4f2;
+  --foreground: #0f1b26;
+  --muted: #284b66;
+  --line: rgba(36, 105, 160, 0.45);
+  --accent: #2f7fbf;
+  --on-accent: #f7fbff;
+  --nav-bg: rgba(170, 207, 232, 0.85);
+  --footer-bg: #1f5f94;
+  --hero-bg: #2f7fbf;
+  --hero-fg: #f7fbff;
+  --hero-ink: #0b1a2a;
+}
+
+html[data-theme="forest"] {
+  --background: #d5e6cf;
+  --foreground: #12190f;
+  --muted: #34502d;
+  --line: rgba(60, 120, 55, 0.45);
+  --accent: #3f8a3c;
+  --on-accent: #f8fff5;
+  --nav-bg: rgba(184, 214, 175, 0.85);
+  --footer-bg: #2c6a2a;
+  --hero-bg: #3f8a3c;
+  --hero-fg: #f8fff5;
+  --hero-ink: #0f1d10;
+}
+
+html[data-theme="midnight"] {
+  --background: #15131c;
+  --foreground: #f3ede6;
+  --muted: #b8aea6;
+  --line: rgba(229, 138, 95, 0.4);
+  --accent: #d4764a;
+  --on-accent: #fffbf3;
+  --nav-bg: rgba(28, 25, 38, 0.85);
+  --footer-bg: #8f4527;
+  --hero-bg: #15131c;
+  --hero-fg: #f3ede6;
+  --hero-ink: #d4764a;
 }
 
 @theme inline {
@@ -15,8 +77,14 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-nav: var(--nav-bg);
+  --color-footer: var(--footer-bg);
+  --color-hero: var(--hero-bg);
+  --color-hero-fg: var(--hero-fg);
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument), "Iowan Old Style", "Palatino Linotype", serif;
+  --font-display: var(--font-anton), Impact, "Arial Narrow Bold", sans-serif;
 }
 
 html {
@@ -36,19 +104,13 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: #fffbf3;
+  color: var(--on-accent);
 }
 
-a:focus-visible {
-  outline: 1px solid var(--foreground);
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--foreground);
   outline-offset: 4px;
-}
-
-.hero-glow {
-  background:
-    radial-gradient(ellipse 80% 70% at 80% 0%, #e07a52, transparent 62%),
-    radial-gradient(ellipse 55% 50% at 0% 20%, #ebcece, transparent 58%),
-    linear-gradient(180deg, #f0b090 0%, var(--background) 78%);
 }
 
 .rise {
@@ -79,17 +141,6 @@ a:focus-visible {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .rise,
-  .role-in {
-    animation: none;
-  }
-}
-
 .marquee-track {
   animation: marquee 45s linear infinite;
 }
@@ -108,6 +159,12 @@ a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise,
+  .role-in,
   .marquee-track {
     animation: none;
   }

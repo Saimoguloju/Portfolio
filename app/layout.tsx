@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
+import { Anton, Geist, Instrument_Serif } from "next/font/google";
+import { ThemeThread } from "@/components/theme-thread";
 import "./globals.css";
 
 const sans = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
+});
+
+const display = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-anton",
 });
 
 const serif = Instrument_Serif({
@@ -25,8 +32,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
-      <body className="bg-background text-foreground antialiased">{children}</body>
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${display.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}`,
+          }}
+        />
+      </head>
+      <body className="bg-background text-foreground antialiased">
+        {children}
+        <ThemeThread />
+      </body>
     </html>
   );
 }
