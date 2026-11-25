@@ -5,6 +5,7 @@ import heliosLogo from "@/Images/Helios Core AI.png";
 import huggingfaceIcon from "@/Images/Hugging Face.png";
 import linkedinIcon from "@/Images/LinkedIn.png";
 import profilePhoto from "@/Images/profile_image.png";
+import twitterIcon from "@/Images/twitter.jpeg";
 
 export type ProfileLink = {
   label: string;
@@ -14,7 +15,7 @@ export type ProfileLink = {
 
 export type WorkItem = {
   title: string;
-  meta: string;
+  meta?: string;
   summary: string;
   links?: ProfileLink[];
 };
@@ -75,29 +76,26 @@ export const profile = {
       href: "https://huggingface.co/MogulojuSai",
       icon: huggingfaceIcon,
     },
+    { label: "X (Twitter)", href: "https://x.com/MogulojuSai2", icon: twitterIcon },
   ] satisfies ProfileLink[],
   work: [
     {
       title: "Voice Intelligence Platform",
-      meta: "Elision Technologies · 2025",
       summary:
         "An end-to-end voice platform processing thousands of customer calls a day. Speech-to-text, text-to-speech, LLM orchestration, call analytics, AI evaluation, observability, and reliability monitoring sit in one system.",
     },
     {
       title: "Multilingual voice agents",
-      meta: "Elision Technologies · 2025",
       summary:
         "Customer-support agents with accent handling, real-time conversation, RAG-based knowledge retrieval, hallucination detection, ticket automation, and intelligent call transfer, built with Vapi.",
     },
     {
       title: "EngageIQ",
-      meta: "Elision Technologies · 2025",
       summary:
         "A customer-interaction and voice-analytics platform on Supabase and Pinecone, with Whisper-based speech intelligence, retrieval-augmented generation, and production monitoring and tracing.",
     },
     {
       title: "OpenClaw AI workspaces",
-      meta: "Elision Technologies · 2025",
       summary:
         "AI workspaces for lead generation, Pipedrive CRM integration, WhatsApp automation, customer support, email automation, and internal business workflows.",
     },
@@ -158,6 +156,26 @@ export const profile = {
       label: "Voice",
       text: "A voice agent is a latency budget. Transcription, the answer, and the spoken reply have to hold together while someone is still on the line.",
     },
+    {
+      label: "Observability",
+      text: "If I can't trace it, I can't fix it. Tracing and dashboards go in before the feature ships, so a hallucination or a wrong tool call shows up in a log, not in a customer complaint.",
+    },
+    {
+      label: "Guardrails",
+      text: "An agent that can act needs limits. Allowlisted tools, validated outputs, a confirmation before anything irreversible, and checks for prompt injection on every input.",
+    },
+    {
+      label: "Handoff",
+      text: "A good agent knows what it can't answer. It transfers to a person with the context attached, instead of guessing and sounding confident.",
+    },
+    {
+      label: "Feedback loops",
+      text: "Real calls are the best test set. Every failure in production becomes a regression case, so the next version is scored on the mess that broke the last one.",
+    },
+    {
+      label: "Failure",
+      text: "Providers time out and models go down. I design for it with retries, fallbacks, and services that degrade gracefully, so one bad dependency doesn't take the line down.",
+    },
   ] satisfies Principle[],
   experience: [
     {
@@ -214,9 +232,9 @@ export const profile = {
   certifications:
     "AWS Fundamentals on Coursera, Data Science with Python from NPTEL, and Agentic AI with LangChain and LangGraph on Udemy.",
   community:
-    "Writes on Medium and LinkedIn, with 18K+ LinkedIn followers, and runs a Telugu Data Science community across Twitter, WhatsApp, and YouTube.",
+    "I write on Medium and LinkedIn, where more than 18K people follow along, and I share what I learn from shipping AI in production: what broke, what held up, and what I would do differently. I also run a Telugu Data Science community across Twitter, WhatsApp, and YouTube, because good AI and data science teaching should be available in the language people think in, not only in English.",
   interests:
-    "Exploring Quantum AI: how quantum computing can accelerate next-generation AI systems, optimization, model training, and reasoning.",
+    "Quantum AI is the thing I read about when the work is done. I want to understand how quantum computing could speed up the next generation of AI systems: optimization, model training, and reasoning. It is early and mostly unsolved, which is exactly why it keeps me curious.",
   skillGroups: [
     { name: "Languages", items: ["Python", "TypeScript", "JavaScript", "Java"] },
     {

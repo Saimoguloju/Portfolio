@@ -8,7 +8,7 @@ export function Work() {
         <div className="mt-10">
           {profile.work.map((item) => (
             <article key={item.title} className="grid gap-4 border-t border-line py-10 md:grid-cols-12 md:gap-10 md:py-14">
-              <p className="text-sm text-accent md:col-span-3">{item.meta}</p>
+              <p className="text-sm text-accent md:col-span-3">{item.meta ?? ""}</p>
               <div className="md:col-span-9">
                 <h3 className="font-display text-4xl uppercase leading-[0.95] md:text-6xl">{item.title}</h3>
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
