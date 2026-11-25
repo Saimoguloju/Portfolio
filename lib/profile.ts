@@ -29,6 +29,11 @@ export type Principle = {
   text: string;
 };
 
+export type SkillGroup = {
+  name: string;
+  items: string[];
+};
+
 export type Role = {
   title: string;
   org: string;
@@ -205,53 +210,17 @@ export const profile = {
     "Writes on Medium and LinkedIn, with 18K+ LinkedIn followers, and runs a Telugu Data Science community across Twitter, WhatsApp, and YouTube.",
   interests:
     "Exploring Quantum AI: how quantum computing can accelerate next-generation AI systems, optimization, model training, and reasoning.",
-  skills: [
-    // Languages
-    "Python",
-    "TypeScript",
-    "JavaScript",
-    "Java",
-    // AI and agents
-    "AI Agents",
-    "Multi-Agent Systems",
-    "RAG",
-    "MCP",
-    "OpenClaw",
-    "Fine-tuning",
-    "LoRA",
-    "QLoRA",
-    "AI Guardrails",
-    "AI Evals",
-    // Frameworks
-    "FastAPI",
-    "React",
-    "LangChain",
-    "LangGraph",
-    "LangSmith",
-    "CrewAI",
-    "n8n",
-    // Voice
-    "Vapi",
-    "Pipecat",
-    "LiveKit",
-    "Deepgram",
-    "Twilio",
-    "ElevenLabs",
-    "Whisper",
-    // Data
-    "PostgreSQL",
-    "MongoDB",
-    "MySQL",
-    "Supabase",
-    "Pinecone",
-    "Redis",
-    // DevOps and cloud
-    "Docker",
-    "Kubernetes",
-    "CI/CD",
-    "Git",
-    "AWS",
-    "GCP",
-    "Azure",
-  ],
+  skillGroups: [
+    { name: "Languages", items: ["Python", "TypeScript", "JavaScript", "Java"] },
+    {
+      name: "AI and agents",
+      items: ["AI Agents", "Multi-Agent Systems", "RAG", "MCP", "OpenClaw", "Fine-tuning", "LoRA", "QLoRA", "AI Guardrails", "AI Evals"],
+    },
+    { name: "Frameworks", items: ["FastAPI", "React", "LangChain", "LangGraph", "LangSmith", "CrewAI", "n8n"] },
+    { name: "Voice", items: ["Vapi", "Pipecat", "LiveKit", "Deepgram", "Twilio", "ElevenLabs", "Whisper"] },
+    { name: "Data", items: ["PostgreSQL", "MongoDB", "MySQL", "Supabase", "Pinecone", "Redis"] },
+    { name: "DevOps and cloud", items: ["Docker", "Kubernetes", "CI/CD", "Git", "AWS", "GCP", "Azure"] },
+  ] satisfies SkillGroup[],
 };
+
+export const allSkills = profile.skillGroups.flatMap((group) => group.items);

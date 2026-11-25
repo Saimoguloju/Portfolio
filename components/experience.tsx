@@ -47,18 +47,13 @@ export function Experience() {
           ))}
         </ol>
 
-        <div className="mt-16 grid gap-10 border-t border-line pt-12 md:grid-cols-2">
+        <div className="mt-16 grid gap-10 border-t border-line pt-12 ">
           <div>
             <h3 className="text-xs uppercase tracking-[0.22em] text-muted">Education</h3>
             <p className="mt-4 text-xl">{profile.education.degree}</p>
             <p className="mt-2 text-muted">{profile.education.school}</p>
             <p className="mt-1 text-sm text-muted">{profile.education.dates}</p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">{profile.certifications}</p>
-          </div>
-          <div>
-            <h3 className="text-xs uppercase tracking-[0.22em] text-muted">Also</h3>
-            <p className="mt-4 max-w-md leading-relaxed text-muted">{profile.community}</p>
-            <p className="mt-4 max-w-md leading-relaxed text-muted">{profile.interests}</p>
           </div>
         </div>
       </div>

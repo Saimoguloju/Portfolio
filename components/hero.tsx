@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-svh flex-col justify-between overflow-hidden bg-hero px-6 pb-8 pt-12 text-hero-fg md:px-10 md:pt-14"
+      className="relative flex min-h-svh flex-col justify-between overflow-hidden bg-hero px-6 pb-8 pt-28 text-hero-fg md:px-10 md:pt-32"
     >
       <HeroCircles />
 
@@ -35,7 +35,7 @@ export function Hero() {
             Work
           </a>
           <span aria-hidden="true">, </span>
-          <a href="#experience" className="underline underline-offset-4">
+          <a href="#about" className="underline underline-offset-4">
             About
           </a>
         </nav>

@@ -2,9 +2,12 @@ import Image from "next/image";
 import { profile } from "@/lib/profile";
 
 const items = [
+  { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
   { label: "Systems", href: "#systems" },
+  { label: "Toolkit", href: "#toolkit" },
   { label: "Experience", href: "#experience" },
+  { label: "Beyond code", href: "#beyond" },
   { label: "Contact", href: "#contact" },
 ];
 
