@@ -22,6 +22,7 @@ export type WorkItem = {
 export type SystemItem = {
   name: string;
   summary: string;
+  stack: string[];
 };
 
 export type Principle = {
@@ -122,22 +123,26 @@ export const profile = {
     {
       name: "Voice",
       summary:
-        "Speech-to-text and text-to-speech pipelines for live calls and post-call review, using Vapi, Deepgram, Twilio, ElevenLabs, Whisper, Pipecat, and LiveKit.",
+        "The Voice Intelligence Platform at Elision handles thousands of customer calls a day. Multilingual support agents deal with accents in real time, answer from a knowledge base, flag hallucinations, open tickets, and transfer the call to a person when needed. STT and TTS are tuned for latency and accuracy, live and after the call.",
+      stack: ["Vapi", "Deepgram", "Whisper", "ElevenLabs", "Twilio", "Pipecat", "LiveKit"],
     },
     {
       name: "Agents",
       summary:
-        "AI agents, SWE agents, and multi-agent workflows with LangGraph, CrewAI, and tool calling, plus n8n automations and OpenClaw workspaces for CRM, WhatsApp, email, and support.",
+        "Agents that do the work, not just talk about it: LangGraph workflows, SWE agents, and OpenClaw workspaces that run lead generation, Pipedrive CRM, WhatsApp, email, and support. Production n8n flows connect the agents to APIs and internal tools. OpenSRE, my open-source SRE agent, runs detect, analyze, decide, act on live incidents.",
+      stack: ["LangGraph", "LangChain", "OpenClaw", "n8n", "Pipedrive", "MCP"],
     },
     {
-      name: "Retrieval",
+      name: "Retrieval and evals",
       summary:
-        "Retrieval-augmented generation with Pinecone and knowledge bases, hallucination checks, guardrails, evals, and feedback loops that tighten what the model is allowed to say.",
+        "RAG on Pinecone and Supabase for EngageIQ, then the part most teams skip: evals, tracing, and dashboards for retrieval accuracy, hallucination rate, latency, and failure patterns. Daily reports show issue resolution, knowledge gaps, and where the AI is getting worse before customers notice.",
+      stack: ["Pinecone", "Supabase", "LangSmith", "Guardrails", "Evals", "Tracing"],
     },
     {
-      name: "Routing",
+      name: "Routing and infra",
       summary:
-        "Multi-LLM orchestration across OpenAI, Claude, Gemini, and Mistral, with intelligent routing, fallbacks, latency optimization, and cost-aware inference.",
+        "Multi-LLM orchestration across OpenAI, Claude, Gemini, and Mistral, with model routing, fallbacks, and cost-aware inference. It grew into lc-shift, my open-source Python router. Behind it sit FastAPI microservices in Docker, with centralized logging and fault-tolerant design.",
+      stack: ["OpenAI", "Claude", "Gemini", "Mistral", "FastAPI", "Docker", "Kubernetes"],
     },
   ] satisfies SystemItem[],
   principles: [
