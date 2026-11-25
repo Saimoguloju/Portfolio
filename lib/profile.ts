@@ -208,7 +208,7 @@ export const profile = {
   ] satisfies Role[],
   education: {
     degree: "Bachelor of Technology in Data Science",
-    school: "TKR College of Engineering and Technology",
+    school: "Jawaharlal Nehru Technological University Hyderabad (JNTUH)",
     dates: "Sep 2020 - Jul 2024",
   },
   certifications:

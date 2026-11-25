@@ -15,11 +15,6 @@ export function Footer() {
               {profile.email}
             </a>
           </li>
-          <li>
-            <a className="underline decoration-on-accent underline-offset-4" href={profile.phoneHref}>
-              {profile.phone}
-            </a>
-          </li>
           {profile.links.map((link) => (
             <li key={link.href}>
               <a

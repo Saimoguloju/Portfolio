@@ -4,7 +4,7 @@ export function Toolkit() {
   return (
     <section id="toolkit" className="px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-6xl border-t border-line pt-16">
-        <h2 className="font-display text-5xl uppercase leading-[0.95] md:text-7xl">Toolkit</h2>
+        <h2 className="font-display text-5xl uppercase leading-[0.95] md:text-7xl">Tools I ship with</h2>
         <div className="mt-12 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {profile.skillGroups.map((group) => (
             <div key={group.name}>
