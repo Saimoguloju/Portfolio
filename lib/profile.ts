@@ -60,6 +60,8 @@ export const profile = {
   headline: "Production AI, built for real operations.",
   summary:
     "I build AI agents, SWE agents, RAG systems, multi-agent architectures, enterprise automation, and voice AI that run in live customer operations. About two years in, currently leading AI engineering at Elision Technologies.",
+  aboutMore:
+    "I'm looking for challenging work: the kind of problem that follows you to bed and keeps you up at night, then makes you open the laptop at 2 a.m. because you finally see the fix. Hard systems, real users, and something that has to work when it goes live. That is where I do my best work.",
   links: [
     { label: "GitHub", href: "https://github.com/Saimoguloju", icon: githubIcon },
     {
