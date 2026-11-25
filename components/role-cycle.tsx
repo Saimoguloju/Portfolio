@@ -2,57 +2,84 @@
 
 import { useEffect, useState } from "react";
 
-const TYPE_MS = 75;
-const HOLD_MS = 1600;
-const ERASE_MS = 35;
-const GAP_MS = 350;
+const TYPE_MS = 80;
+const HOLD_MS = 1500;
+const ERASE_MS = 40;
+const GAP_MS = 300;
+const SWAP_MS = 2500;
 
 export function RoleCycle({ roles }: { roles: readonly string[] }) {
-  const [index, setIndex] = useState(0);
-  const [count, setCount] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
+  // Show the first role in full until the browser takes over, so the line is never empty.
+  const [text, setText] = useState(roles[0] ?? "");
+  const [label, setLabel] = useState(roles[0] ?? "");
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduceMotion(media.matches);
-    update();
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
-  }, []);
+    if (roles.length === 0) return;
 
-  const role = roles[index];
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let timer: number;
+    let index = 0;
+    let count = 0;
+    let deleting = false;
+    let cancelled = false;
 
-  useEffect(() => {
-    if (reduceMotion || roles.length === 0) return;
+    if (reduceMotion) {
+      // No typing: swap the whole role every few seconds.
+      const swap = () => {
+        index = (index + 1) % roles.length;
+        setText(roles[index]);
+        setLabel(roles[index]);
+      };
+      timer = window.setInterval(swap, SWAP_MS);
+      return () => window.clearInterval(timer);
+    }
 
-    let delay: number;
-    if (!deleting) delay = count < role.length ? TYPE_MS : HOLD_MS;
-    else delay = count > 0 ? ERASE_MS : GAP_MS;
+    // Typing loop: type, hold, erase, next role. All state lives in this closure.
+    setText("");
+    const tick = () => {
+      if (cancelled) return;
+      const role = roles[index];
+      let delay: number;
 
-    const id = window.setTimeout(() => {
       if (!deleting) {
-        if (count < role.length) setCount(count + 1);
-        else setDeleting(true);
-      } else if (count > 0) {
-        setCount(count - 1);
+        count += 1;
+        setText(role.slice(0, count));
+        if (count >= role.length) {
+          deleting = true;
+          setLabel(role);
+          delay = HOLD_MS;
+        } else {
+          delay = TYPE_MS;
+        }
       } else {
-        setDeleting(false);
-        setIndex((index + 1) % roles.length);
+        count -= 1;
+        setText(role.slice(0, Math.max(count, 0)));
+        if (count <= 0) {
+          deleting = false;
+          count = 0;
+          index = (index + 1) % roles.length;
+          delay = GAP_MS;
+        } else {
+          delay = ERASE_MS;
+        }
       }
-    }, delay);
-    return () => window.clearTimeout(id);
-  }, [reduceMotion, roles.length, role, count, deleting, index]);
+      timer = window.setTimeout(tick, delay);
+    };
+    timer = window.setTimeout(tick, TYPE_MS);
 
-  if (reduceMotion) return <span>{roles[0]}</span>;
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [roles]);
 
   return (
     <>
       <span className="sr-only" aria-live="polite">
-        {role}
+        {label}
       </span>
       <span aria-hidden="true">
-        {role.slice(0, count)}
+        {text}
         <span className="type-caret">|</span>
       </span>
     </>

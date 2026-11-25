@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-svh flex-col justify-between overflow-hidden bg-hero px-6 pb-8 pt-28 text-hero-fg md:px-10 md:pt-32"
+      className="relative flex min-h-svh flex-col justify-between overflow-hidden bg-hero px-6 pb-8 pt-12 text-hero-fg md:px-10 md:pt-14"
     >
       <HeroCircles />
 
